@@ -1,0 +1,10 @@
+span{
+      font-family: Roboto, Arial, sans-serif;
+  font-size: 10vmax;
+  background-color: yellow;
+  background-image: linear-gradient(90deg, red, yellow);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+<form action="profile"><button class="btn btn-primary" type="submit" style="margin-right: 40px; background-color: #FFA500; border-color: #FFA500">Профиль</button></form>
