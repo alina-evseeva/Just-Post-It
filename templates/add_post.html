@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<body style="background-color: #E5DFDA; padding-top: 10px">
+<div class="container py-3">
+  <header>
+    <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+      <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
+        <span class="" style="color: #FF4500; font-weight: bold; font-size: 30px; margin-left: auto; margin-right: auto">Just Post IT</span>
+      </a>
+      <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+        <form action="profile"><button class="btn btn-primary" type="submit" style="margin-right: 40px; color: black; background-color: white; border: solid #FF9A37; border-radius: 20px; width: 120px; box-shadow: 0px 0px 5px 2px #f4cc85">Профиль</button></form>
+      </nav>
+    </div>
+  </header>
+
+{{ super() }}
+<section class="container box-section1" style="background-color: white; margin-right: auto; margin-left: auto;
+                justify-content: center; display: block; align-items: center; text-align: center; width: 1000px;
+                border-radius: 25px; padding-top: 20px; padding-bottom: 20px">
+  {% for cat, msg in get_flashed_messages(True) %}
+  <div class="flash {{cat}}">{{msg}}</div>
+  {% endfor %}
+  <h1 style="margin-bottom: 30px; margin-top: 15px; font-weight: bold">Добавление проекта</h1>
+  <hr style="margin-bottom: 30px">
+  <form action="{{url_for('addPost')}}" method="POST" class="form-contact">
+    <p><label style="font-size: 25px">Название проекта: </label>
+    <p><input type="text" name="title" value="" required  style="border-radius: 10px; width: 300px; height: 40px; background-color: #ffd5ab"/>
+
+    <p><label style="font-size: 25px; margin-top: 15px">URL статьи:</label>
+    <p><input type="text" name="url" value="" required style="border-radius: 10px; width: 300px; height: 40px; background-color: #ffd5ab" />
+
+    <p><label style="font-size: 25px; margin-top: 15px">Описание проекта:</label>
+    <p><textarea name="text" rows=10 cols=50 style="border-radius: 10px; background-color: #ffd5ab"></textarea>
+    <p><input type="submit" value="Добавить" class="box" style="width: 250px" required />
+  </form>
+</section>
+</div>
+</body>
+{% endblock %}
